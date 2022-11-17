@@ -37,5 +37,6 @@ addLayer("p", {
 	passiveGeneration() {
 		if (hasUpgrade("p", 11)) return 0.1
 		return 0
-	}
+	},
+	canReset() {return false}
 })
