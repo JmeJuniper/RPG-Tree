@@ -19,7 +19,11 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1 - RPG.init()</h3><br>
-		- Oh hey, there's a game here<br>`
+		- Oh hey, there's a game here
+		- Added coin layer (and upgrades:
+			1. (0 coins) Generate 0.1 coins per second
+			3. (3 coins) Unlock Summons
+			2. (5 coins) Multiply coin generation by 10<br>`
 
 let winText = `GG! You beat this RPG thingy!`
 
