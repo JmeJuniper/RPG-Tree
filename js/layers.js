@@ -1,4 +1,4 @@
-addLayer("p", {
+addLayer("c", {
 	name: "Coins", // This is optional, only used in a few places, If absent it just uses the layer id.
 	symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
 	position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
@@ -8,7 +8,7 @@ addLayer("p", {
     }},
 	color: "#4BDC13",
 	requires: function() {
-		if (hasUpgrade("p", 11)) return 1
+		if (hasUpgrade("c", 11)) return 1
 		return 0
 	}, // Can be a function that takes requirement increases into account
 	resource: "coins", // Name of prestige currency
@@ -32,10 +32,20 @@ addLayer("p", {
 			description: "Get a bit of coin gain",
 			cost: new Decimal(0)
 		}
+		12: {
+			title: "Ooooh a promotion!",
+			description: "Multiply coin gain by 10",
+			cost: new Decimal(5)
+		}
+		12: {
+			title: "I wonder what's in this building...",
+			description: "Unlock Summons",
+			cost: new Decimal(3)
+		}
 	},
 	resetNothing: true,
 	passiveGeneration() {
-		if (hasUpgrade("p", 11)) return 0.1
+		if (hasUpgrade("c", 11)) return 0.1
 		return 0
 	},
 	canReset() {return false}
