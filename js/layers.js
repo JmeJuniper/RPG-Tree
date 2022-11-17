@@ -8,12 +8,12 @@ addLayer("p", {
     }},
 	color: "#4BDC13",
 	requires: function() {
-		if (hasUpgrade("p", 11)) return player.points
-		return player.points.add(getPointGen())
+		if (hasUpgrade("p", 11)) return 1
+		return 0
 	}, // Can be a function that takes requirement increases into account
 	resource: "coins", // Name of prestige currency
-	baseResource: "points", // Name of resource prestige is based on
-	baseAmount() {return player.points}, // Get the current amount of baseResource
+	baseResource: "(Sorry, no resetting :D)", // Name of resource prestige is based on
+	baseAmount() {return 1}, // Get the current amount of baseResource
 	type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
 	exponent: getPointGen(), // Prestige currency exponent
 	gainMult() { // Calculate the multiplier for main currency from bonuses
