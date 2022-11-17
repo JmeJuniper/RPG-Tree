@@ -34,8 +34,12 @@ addLayer("c", {
 		},
 		12: {
 			title: "Ooooh a promotion!",
-			description: "Multiply coin gain by 10",
-			cost: new Decimal(5)
+			description: "Multiply coin gain based on xp",
+			cost: new Decimal(5),
+			effect() {
+				
+			},
+			effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
 		},
 		21: {
 			title: "I wonder what's in this building...",
