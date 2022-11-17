@@ -8,7 +8,7 @@ addLayer("p", {
     }},
 	color: "#4BDC13",
 	requires: function() {
-		if (hasUpgrade("c", 11)) return player.points
+		if (hasUpgrade("p", 11)) return player.points
 		return player.points.add(getPointGen())
 	}, // Can be a function that takes requirement increases into account
 	resource: "coins", // Name of prestige currency
@@ -35,7 +35,7 @@ addLayer("p", {
 	},
 	resetNothing: true,
 	passiveGeneration() {
-		if (hasUpgrade("c", 11)) return 0.1
+		if (hasUpgrade("p", 11)) return 0.1
 		return 0
 	}
 })
