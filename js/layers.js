@@ -45,7 +45,7 @@ addLayer("c", {
 	},
 	resetNothing: true,
 	passiveGeneration() {
-		local gain = 0
+		local gain = 0;
 		if (hasUpgrade("c", 11)) gain += 0.1
 		if (hasUpgrade("c", 12)) gain *= 10
 		return gain
