@@ -31,13 +31,13 @@ addLayer("c", {
 			title: "Work or smth idk",
 			description: "Get a bit of coin gain",
 			cost: new Decimal(0)
-		}
+		},
 		12: {
 			title: "Ooooh a promotion!",
 			description: "Multiply coin gain by 10",
 			cost: new Decimal(5)
-		}
-		12: {
+		},
+		21: {
 			title: "I wonder what's in this building...",
 			description: "Unlock Summons",
 			cost: new Decimal(3)
