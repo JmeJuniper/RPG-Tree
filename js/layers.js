@@ -1,4 +1,4 @@
-addLayer("p", {
+addLayer("c", {
 	name: "Coins", // This is optional, only used in a few places, If absent it just uses the layer id.
 	symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
 	position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
@@ -7,12 +7,15 @@ addLayer("p", {
 		points: new Decimal(0),
     }},
 	color: "#4BDC13",
-	requires: function() {return player.points.add(1)}, // Can be a function that takes requirement increases into account
+	requires: function() {
+		if (hasUpgrade("c", 11)) return player.points
+		return player.points.add(getPointGen())
+	}, // Can be a function that takes requirement increases into account
 	resource: "coins", // Name of prestige currency
 	baseResource: "points", // Name of resource prestige is based on
 	baseAmount() {return player.points}, // Get the current amount of baseResource
 	type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-	exponent: 1, // Prestige currency exponent
+	exponent: getPointGen(), // Prestige currency exponent
 	gainMult() { // Calculate the multiplier for main currency from bonuses
 		mult = new Decimal(1)
 		return mult
@@ -29,5 +32,10 @@ addLayer("p", {
 			description: "Get a bit of coin gain",
 			cost: new Decimal(0)
 		}
+	},
+	resetNothing: true,
+	passiveGeneration() {
+		if (hasUpgrade("c", 11)) return 0.1
+		return 0
 	}
 })
