@@ -7,7 +7,7 @@ addLayer("c", {
 		points: new Decimal(0),
 	}},
 	color: "#ff0",
-	requires: function() {
+	requires() {
 		if (hasUpgrade("c", 11)) return 1
 		return 0
 	}, // Can be a function that takes requirement increases into account
