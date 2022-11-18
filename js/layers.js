@@ -89,9 +89,11 @@ addLayer("s", {
 	requires: function() {
 		var req = new Decimal(20)
 		if (hasUpgrade("c", 22)) req.div(upgradeEffect("c", 22))
+		console.log(req)
+		console.log(upgradeEffect("c", 22))
 		return req
 	}, // Can be a function that takes requirement increases into account
-	resource: "summoning energy"+upgradeEffect("c", 22), // Name of prestige currency
+	resource: "summoning energy", // Name of prestige currency
 	baseResource: "coins", // Name of resource prestige is based on
 	baseAmount() {return player.c.points}, // Get the current amount of baseResource
 	type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
