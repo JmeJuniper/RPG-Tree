@@ -116,7 +116,7 @@ addLayer("s", {
 		11: {
 			description: "see coin req",
 			cost: new Decimal(0),
-			tooltip: format(new Decimal(20).div(upgradeEffect("c", 22)))
+			tooltip: new Decimal(20).div(upgradeEffect("c", 22))
 		}
 	}
 })
