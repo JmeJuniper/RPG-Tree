@@ -33,7 +33,8 @@ addLayer("c", {
 			effect() {
 				return new Decimal(0.2)
 			},
-			cost: new Decimal(0)
+			cost: new Decimal(0),
+			tooltip: "Gain 0.2 coins per second",
 		},
 		12: {
 			title: "Ooooh a promotion!",
@@ -42,21 +43,24 @@ addLayer("c", {
 			effect() {
 				return player.points.add(1).log(1.4)
 			},
-			effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
+			effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+			tooltip: "Multiplies cps by [ log1.4(XP+1) ]",
 		},
 		21: {
 			title: "I wonder what's in this building...",
 			description: "Unlock Summons",
-			cost: new Decimal(3)
+			cost: new Decimal(3),
+			tooltip: "Unlock new layer \"Summons\"",
 		},
 		22: {
 			title: "VIP pass",
 			description: "Cheaper summons based on your coins",
-			cost: new Decimal(25),
+			cost: new Decimal(50),
 			effect() {
-				return player.points.root(1.4).div(5)
+				return player.c.points.root(1.4).div(5)
 			},
-			effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) }
+			effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+			tooltip: "Summon coin requirement is divided by [ root1.4(coins)/5 ]",
 		}
 	},
 	resetNothing: true,
@@ -83,7 +87,7 @@ addLayer("s", {
 	}},
 	color: "#707",
 	requires: function() {
-		var req = new Decimal(10)
+		var req = new Decimal(20)
 		if (hasUpgrade("c", 22)) req.div(upgradeEffect("c", 22))
 		return req
 	}, // Can be a function that takes requirement increases into account
@@ -109,5 +113,10 @@ addLayer("s", {
 	],
 	layerShown(){return true},
 	upgrades: {
+		11: {
+			description: "see coin req",
+			cost: new Decimal(0),
+			tooltip: format(requires()) + " OR " + format(this.layer.requires()) + " OR " + format(this.requires()) + " OR " + format(new Decimal(20).div(upgradeEffect("c", 22)))
+		}
 	}
 })
