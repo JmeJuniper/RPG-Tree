@@ -6,7 +6,7 @@ addLayer("c", {
 		unlocked: true,
 		points: new Decimal(0),
     }},
-	color: "#4BDC13",
+	color: "#ff0",
 	requires: function() {
 		if (hasUpgrade("c", 11)) return 1
 		return 0
@@ -29,7 +29,7 @@ addLayer("c", {
 	upgrades: {
 		11: {
 			title: "Work or smth idk",
-			description: "Get a bit of coin gain",
+			description: "Get a bit of coin gain (base: 0.2)",
 			cost: new Decimal(0)
 		},
 		12: {
@@ -37,7 +37,7 @@ addLayer("c", {
 			description: "Multiply coin gain based on xp",
 			cost: new Decimal(5),
 			effect() {
-				
+				return player.points.log(2).add(1)
 			},
 			effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
 		},
@@ -50,8 +50,8 @@ addLayer("c", {
 	resetNothing: true,
 	passiveGeneration() {
 		var gain = 0;
-		if (hasUpgrade("c", 11)) gain += 0.1
-		if (hasUpgrade("c", 12)) gain *= 10
+		if (hasUpgrade("c", 11)) gain += 0.2
+		if (hasUpgrade("c", 12)) gain *= player.points.log(2).add(1)
 		return gain
 	},
 	canReset() {return false}
