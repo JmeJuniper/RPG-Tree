@@ -116,7 +116,7 @@ addLayer("s", {
 		11: {
 			description: "see coin req",
 			cost: new Decimal(0),
-			tooltip: format(requires()) + " OR " + format(this.layer.requires()) + " OR " + format(this.requires()) + " OR " + format(new Decimal(20).div(upgradeEffect("c", 22)))
+			tooltip: format(requires()),// + " OR " + format(this.layer.requires()) + " OR " + format(this.requires()) + " OR " + format(new Decimal(20).div(upgradeEffect("c", 22)))
 		}
 	}
 })
