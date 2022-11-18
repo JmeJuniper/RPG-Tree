@@ -12,7 +12,7 @@ addLayer("c", {
 		return 0
 	}, // Can be a function that takes requirement increases into account
 	resource: "coins", // Name of prestige currency
-	baseResource: "(Sorry, no resetting :D)", // Name of resource prestige is based on
+	baseResource: "", // Name of resource prestige is based on
 	baseAmount() {return new Decimal(1)}, // Get the current amount of baseResource
 	type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
 	exponent: getPointGen(), // Prestige currency exponent
@@ -29,7 +29,10 @@ addLayer("c", {
 	upgrades: {
 		11: {
 			title: "Work or smth idk",
-			description: "Get a bit of coin gain (base: 0.2)",
+			description: "Get a bit of coin gain",
+			effect() {
+				return new Decimal(0.2)
+			},
 			cost: new Decimal(0)
 		},
 		12: {
@@ -37,7 +40,7 @@ addLayer("c", {
 			description: "Multiply coin gain based on xp",
 			cost: new Decimal(5),
 			effect() {
-				return player.points.log(2).add(1)
+				return player.points.add(1).log(1.4)
 			},
 			effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }
 		},
@@ -49,9 +52,9 @@ addLayer("c", {
 	},
 	resetNothing: true,
 	passiveGeneration() {
-		var gain = 0;
-		if (hasUpgrade("c", 11)) gain += 0.2
-		if (hasUpgrade("c", 12)) gain *= player.points.log(2).add(1)
+		var gain = 0
+		if (hasUpgrade("c", 11)) gain += upgradeEffect("c", 11)
+		if (hasUpgrade("c", 12)) gain *= upgradeEffect("c", 12)
 		return gain
 	},
 	canReset() {return false}
