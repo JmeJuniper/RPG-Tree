@@ -87,8 +87,8 @@ addLayer("s", {
 	color: "#707",
 	requires: function() {
 		var req = new Decimal(20)
-		req.div(upgradeEffect("c", 22))
-		console.log(upgradeEffect("c", 22).mag)
+		if (hasUpgrade("c", 22)) req.div(upgradeEffect("c", 22))
+		console.log(req.mag)
 		return req
 	}, // Can be a function that takes requirement increases into account
 	resource: "summoning energy", // Name of prestige currency
