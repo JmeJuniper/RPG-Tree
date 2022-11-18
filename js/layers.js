@@ -67,7 +67,10 @@ addLayer("c", {
 		return gain
 	},
 	canReset() {return false},
-	resetDescription: "No resetting, purely passive :)",
+	branches: ["s"],
+	doReset(layer) {
+		layerDataReset(this.layer, ["best", "total", "upgrades"])
+	}
 })
 
 addLayer("s", {
@@ -100,8 +103,8 @@ addLayer("s", {
 		{
 			key: "s", // What the hotkey button is. Use uppercase if it's combined with shift, or "ctrl+x" for holding down ctrl.
 			description: "S: Purchase Summoning Energy", // The description of the hotkey that is displayed in the game's How To Play tab
-			onPress() { doReset("s") },
-			unlocked() {return player.s.unlocked} // Determines if you can use the hotkey, optional
+			onPress() { doReset(this.layer) },
+			unlocked() {return player[this.layer].unlocked} // Determines if you can use the hotkey, optional
 		}
 	],
 	layerShown(){return true},
