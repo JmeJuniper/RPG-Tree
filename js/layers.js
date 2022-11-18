@@ -89,8 +89,7 @@ addLayer("s", {
 	requires: function() {
 		var req = new Decimal(20)
 		if (hasUpgrade("c", 22)) req.div(upgradeEffect("c", 22))
-		console.log(req)
-		console.log(upgradeEffect("c", 22))
+		console.log(upgradeEffect("c", 22).mag)
 		return req
 	}, // Can be a function that takes requirement increases into account
 	resource: "summoning energy", // Name of prestige currency
@@ -113,7 +112,7 @@ addLayer("s", {
 			unlocked() {return player[this.layer].unlocked} // Determines if you can use the hotkey, optional
 		}
 	],
-	layerShown(){return true},
+	layerShown(){return hasUpgrade("c", 21)},
 	upgrades: {
 	}
 })
