@@ -45,11 +45,13 @@ addLayer("c", {
 			},
 			effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
 			tooltip: "Formula:<br>log1.4(XP+1)",
+			unlocked() { return hasUpgrade("c", 11) }
 		},
 		21: {
 			title: "I wonder what's in this building...",
 			description: "Unlock Summons",
 			cost: new Decimal(3),
+			unlocked() { return hasUpgrade("c", 11) }
 		},
 		22: {
 			title: "VIP pass",
@@ -60,6 +62,7 @@ addLayer("c", {
 			},
 			effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
 			tooltip: "Formula:<br>root1.4(coins)/5+1<br>",
+			unlocked() { return hasUpgrade("c", 21) }
 		}
 	},
 	resetNothing: true,
