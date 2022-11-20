@@ -76,7 +76,7 @@ addLayer("c", {
 	doReset(layer) {
 	},
 	tabFormat: [
-	    ["main-display", 0.1],
+	    ["main-display", 2],
 		[
 			"display-text",
 			function() {
