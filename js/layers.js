@@ -76,7 +76,13 @@ addLayer("c", {
 	doReset(layer) {
 	},
 	tabFormat: [
-	    "main-display",
+	    ["main-display", 0.1],
+		[
+			"display-text",
+			function() {
+				return "You are gaining " + format(player[this.layer].passiveGeneration()) + " coins per second"
+			}
+		]
 	    "blank",
 	    "blank",
 	    "upgrades",
