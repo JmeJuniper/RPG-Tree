@@ -1,3 +1,5 @@
+// CURRENCIES/STATS
+
 addLayer("c", {
 	name: "Coins", // This is optional, only used in a few places, If absent it just uses the layer id.
 	symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -74,9 +76,12 @@ addLayer("c", {
 	canReset() {return false},
 	branches: ["s"],
 	doReset(layer) {
+		if (layer == "s") {
+			this.layer.points = 0
+		}
 	},
 	tabFormat: [
-	    ["main-display", 2],
+	    ["main-display", 1],
 		[
 			"display-text",
 			function() {
@@ -122,6 +127,8 @@ addLayer("a", {
 	branches: []
 })
 
+// LOCATIONS
+
 addLayer("s", {
 	name: "Summons", // This is optional, only used in a few places, If absent it just uses the layer id.
 	symbol: "S", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -141,7 +148,7 @@ addLayer("s", {
 	exponent: 1, // Prestige currency exponent
 	gainMult() { // Calculate the multiplier for main currency from bonuses
 		var mult = new Decimal(1)
-		if (hasUpgrade("c", 22)) mult.mult(upgradeEffect("c", 22))
+		if (hasUpgrade("c", 22)) mult.mul(upgradeEffect("c", 22))
 		return mult
 	},
 	gainExp() { // Calculate the exponent on main currency from bonuses
