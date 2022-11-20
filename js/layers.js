@@ -74,7 +74,16 @@ addLayer("c", {
 	canReset() {return false},
 	branches: ["s"],
 	doReset(layer) {
-	}
+	},
+	tabFormat: [
+	    "main-display",
+	    "blank",
+	    "blank",
+	    "upgrades",
+	    "blank",
+	    "blank",
+	    "milestones",
+	]
 })
 
 addLayer("a", {
