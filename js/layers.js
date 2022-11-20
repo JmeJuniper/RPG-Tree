@@ -82,7 +82,7 @@ addLayer("c", {
 			function() {
 				return "You are gaining " + format(player[this.layer].passiveGeneration()) + " coins per second"
 			}
-		]
+		],
 	    "blank",
 	    "blank",
 	    "upgrades",
