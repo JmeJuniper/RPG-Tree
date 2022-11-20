@@ -66,13 +66,13 @@ addLayer("c", {
 	},
 	resetNothing: true,
 	passiveGeneration() {
-		var gain = 0
+		let gain = 0
 		if (hasUpgrade("c", 11)) gain += upgradeEffect("c", 11)
 		if (hasUpgrade("c", 12)) gain *= upgradeEffect("c", 12)
 		return gain
 	},
 	canReset() {return false},
-	branches: ["s", "a"],
+	branches: ["s"],
 	doReset(layer) {
 	}
 })
@@ -87,12 +87,12 @@ addLayer("a", {
 	}},
 	color: "#f00",
 	requires() {
-		return 0
+		return 1
 	}, // Can be a function that takes requirement increases into account
 	resource: "attack", // Name of prestige currency
 	baseResource: "", // Name of resource prestige is based on
-	baseAmount() {return new Decimal(1)}, // Get the current amount of baseResource
-	type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+	baseAmount() {return new Decimal(0)}, // Get the current amount of baseResource
+	type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
 	exponent: 1, // Prestige currency exponent
 	gainMult() { // Calculate the multiplier for main currency from bonuses
 		return new Decimal(1)
@@ -104,17 +104,7 @@ addLayer("a", {
 	hotkeys: [],
 	layerShown(){return true},
 	upgrades: {},
-	resetNothing: true,
-	passiveGeneration() {
-		var gain = 0
-		if (hasUpgrade("c", 11)) gain += upgradeEffect("c", 11)
-		if (hasUpgrade("c", 12)) gain *= upgradeEffect("c", 12)
-		return gain
-	},
-	canReset() {return false},
-	branches: [],
-	doReset(layer) {
-	}
+	branches: []
 })
 
 addLayer("s", {
