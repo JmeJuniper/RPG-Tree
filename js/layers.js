@@ -80,7 +80,7 @@ addLayer("c", {
 		[
 			"display-text",
 			function() {
-				return "You are gaining " + format(this.passiveGeneration()) + " coins per second"
+				return "You are gaining " + format(passiveGeneration()) + " coins per second"
 			}
 		],
 	    "blank",
