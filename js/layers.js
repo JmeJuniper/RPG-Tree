@@ -181,14 +181,10 @@ addLayer("CreditsButton", {
 	tabFormat: [
 		[
 			"display-text",
-			"Helpers",
+			"People who put up with my non-stop questions",
 			{"font-size": "32px"}
 		],
-		[
-			"display-text",
-			"(People who put up with my non-stop questions)",
-			{"font-size": "20px"}
-		],
+		"blank",
 		[
 			"display-text",
 			"- @smily",
