@@ -167,3 +167,53 @@ addLayer("s", {
 	upgrades: {
 	}
 })
+
+// SIDETAB
+
+addLayer("CreditsButton", {
+	// Display (tree)
+	name: "Credits",
+	symbol: "C",
+	color: "#666",
+	tooltip: "People who made this game possible :D",
+	
+	// Display (layer)
+	tabFormat: [
+		[
+			"display-text",
+			"Helpers",
+			{"font-size": "32px"}
+		],
+		[
+			"display-text",
+			"(People who put up with my non-stop questions)",
+			{"font-size": "20px"}
+		],
+		[
+			"display-text",
+			"- @smily",
+			{"font-size": "20px", "color": "red"}
+		],
+		[
+			"display-text",
+			"- @Escapee",
+			{"font-size": "20px", "color": "red"}
+		],
+		[
+			"display-text",
+			"- @Acamaeda",
+			{"font-size": "20px", "color": "red"}
+		],
+		"blank",
+		"h-line",
+		"blank"
+	],
+	
+	// Position
+	row: "side",
+	position: 0,
+	
+	// Resetting
+	type: "none",
+	
+})
