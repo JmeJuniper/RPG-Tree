@@ -150,6 +150,55 @@ addLayer("c", {
 // })
 
 addLayer("a", {
+	// Display (tree)
+	name: "Attack",
+	symbol: "Atk",
+	color: "#f00",
+	
+	// Display (layer)
+	resource: "attack",
+	baseResource: "",
+	tabFormat: [
+		[
+			"main-display",
+			0
+		],
+		[
+			"display-text",
+			"Equipment buffing attack:"
+		],
+		[
+			"display-text",
+			"(function here)"
+		],
+	],
+	
+	// Position
+	row: 0,
+	position: 0,
+	
+	// Start data
+	startData() {
+		return {
+			unlocked: true,
+			points: new Decimal(10)
+		}
+	},
+	
+	// Resetting basics
+	type: "normal",
+	
+	// Resetting gain calculations
+	baseAmount() {
+		return new Decimal(1)
+	},
+	requires: new Decimal(1),
+	passiveGeneration() {
+		return 1
+	}
+})
+
+addLayer("a", {
 	name: "Attack", // This is optional, only used in a few places, If absent it just uses the layer id.
 	symbol: "Atk", // This appears on the layer's node. Default is the id with the first letter capitalized
 	position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
