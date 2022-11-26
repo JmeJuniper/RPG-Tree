@@ -173,7 +173,7 @@ addLayer("a", {
 				var items = ""
 				for (var item in this.equipment) {
 					var stats = this.equipment[item]
-					if (stats.atk >= 1)	items.push(item+" | "+stats.name+":\n  attack: "+stats.atk+"\n  attack type: "+stats.type+"\n")
+					if (stats.atk >= 1)	items += item+" | "+stats.name+":\n  attack: "+stats.atk+"\n  attack type: "+stats.type+"\n"
 				}
 				return items
 			}
