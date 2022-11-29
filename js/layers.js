@@ -172,6 +172,7 @@ addLayer("a", {
 			function() {
 				var items = ""
 				for (var item in this.equipment) {
+					console.log(stats)
 					var stats = this.equipment[item]
 					if (stats.atk >= 1)	items += item+" | "+stats.name+":\n  attack: "+stats.atk+"\n  attack type: "+stats.type+"\n"
 				}
