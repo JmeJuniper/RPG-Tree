@@ -149,35 +149,29 @@ addLayer("c", {
 // 	]
 // })
 
-addLayer("a", {
+addLayer("s", {
 	// Display (tree)
-	name: "Attack",
-	symbol: "Atk",
-	color: "#f00",
+	name: "Stats",
+	symbol: "S",
+	color: "#ccc",
 	
 	// Display (layer)
-	resource: "attack",
-	baseResource: "",
+	resource: "stat points",
+	baseResource: "XP",
 	tabFormat: [
 		[
 			"main-display",
 			0
 		],
 		[
-			"display-text",
-			"Equipment buffing attack:"
+			"buyables",
+			[1],
 		],
+		"blank",
+		"blank",
 		[
-			"display-text",
-			function() {
-				var items = ""
-				for (var item in this.equipment) {
-					console.log(stats)
-					var stats = this.equipment[item]
-					if (stats.atk >= 1)	items += item+" | "+stats.name+":\n  attack: "+stats.atk+"\n  attack type: "+stats.type+"\n"
-				}
-				return items
-			}
+			"buyables",
+			[2],
 		],
 	],
 	
@@ -190,18 +184,38 @@ addLayer("a", {
 		return {
 			unlocked: true,
 			points: new Decimal(0),
-			equipment: {
-				weapon: {
-					name: "Wooden sword",
-					atk: 1,
-					type: "melee"
-				}
-			}
+			atk: 1,
+			def: 0,
+			ddg: 0,
+			mhp: 10,
+			mag: 5,
+			eng: 3,
 		}
 	},
 	
 	// Resetting basics
 	type: "none",
+	
+	// Buyables
+	buyables: {
+		11: {
+			title: "+Stat",
+			display() {
+				return "Convert xp to a stat point"
+			},
+			canAfford(x) {
+				return 5*2^(x-1)
+			}
+		},
+		21: {
+			title: "+Attack",
+			display() {
+			},
+			canAfford(x) {
+				return 5*2^(x-1)
+			}
+		}
+	},
 })
 
 // addLayer("a", {
@@ -300,11 +314,6 @@ addLayer("CreditsButton", {
 		[
 			"display-text",
 			"- @Escapee",
-			{"font-size": "20px", "color": "red"}
-		],
-		[
-			"display-text",
-			"- @Acamaeda",
 			{"font-size": "20px", "color": "red"}
 		],
 		"blank",
