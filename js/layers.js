@@ -163,16 +163,9 @@ addLayer("s", {
 			"main-display",
 			0
 		],
-		[
-			"buyables",
-			[1],
-		],
 		"blank",
 		"blank",
-		[
-			"buyables",
-			[2],
-		],
+		"buyables",
 	],
 	
 	// Position
