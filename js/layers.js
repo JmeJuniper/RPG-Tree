@@ -211,7 +211,7 @@ addLayer("s", {
 // 				return 5*2^(x-1)
 // 			}
 // 		}
-// 	},
+// 	}
 })
 
 // addLayer("a", {
