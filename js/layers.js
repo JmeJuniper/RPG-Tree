@@ -188,27 +188,30 @@ addLayer("s", {
 	
 	// Resetting basics
 	type: "none",
+	baseAmount() {
+		return player.points
+	},
 	
 	// Buyables
-	buyables: {
-		11: {
-			title: "+Stat",
-			display() {
-				return "Convert xp to a stat point"
-			},
-			canAfford(x) {
-				return 5*2^(x-1)
-			}
-		},
-		21: {
-			title: "+Attack",
-			display() {
-			},
-			canAfford(x) {
-				return 5*2^(x-1)
-			}
-		}
-	},
+// 	buyables: {
+// 		11: {
+// 			title: "+Stat",
+// 			display() {
+// 				return "Convert xp to a stat point"
+// 			},
+// 			canAfford(x) {
+// 				return 5*2^(x-1)
+// 			}
+// 		},
+// 		21: {
+// 			title: "+Attack",
+// 			display() {
+// 			},
+// 			canAfford(x) {
+// 				return 5*2^(x-1)
+// 			}
+// 		}
+// 	},
 })
 
 // addLayer("a", {
