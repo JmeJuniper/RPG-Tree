@@ -163,6 +163,7 @@ addLayer("s", {
 			"main-display",
 			0
 		],
+		"prestige-button",
 		"blank",
 		"blank",
 		"buyables",
@@ -193,25 +194,29 @@ addLayer("s", {
 	},
 	
 	// Buyables
-// 	buyables: {
-// 		11: {
-// 			title: "+Stat",
-// 			display() {
-// 				return "Convert xp to a stat point"
-// 			},
-// 			canAfford(x) {
-// 				return 5*2^(x-1)
-// 			}
-// 		},
-// 		21: {
-// 			title: "+Attack",
-// 			display() {
-// 			},
-// 			canAfford(x) {
-// 				return 5*2^(x-1)
-// 			}
-// 		}
-// 	}
+	buyables: {
+		11: {
+			// Visuals
+			title: "+Attack",
+			display() {
+				return "Put one stat point into Attack<br>Currently: "+player[this.layer].atk
+			},
+			
+			// Costs
+			cost() {
+				return new Decimal(1)
+			},
+			canAfford() {
+				return true
+			},
+			
+			// Buying
+			buy() {
+				player[this.layer].points -= 1
+				addBuyables(this.layer, this.id, 1)
+			},
+		}
+	}
 })
 
 // addLayer("a", {
