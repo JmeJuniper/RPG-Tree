@@ -246,44 +246,44 @@ addLayer("s", {
 
 // LOCATIONS
 
-addLayer("s", {
-	name: "Summons", // This is optional, only used in a few places, If absent it just uses the layer id.
-	symbol: "S", // This appears on the layer's node. Default is the id with the first letter capitalized
-	position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
-	startData() { return {
-		unlocked: true,
-		points: new Decimal(0),
-	}},
-	color: "#707",
-	requires: function() {
-		return 20
-	}, // Can be a function that takes requirement increases into account
-	resource: "summoning energy", // Name of prestige currency
-	baseResource: "coins", // Name of resource prestige is based on
-	baseAmount() {return player.c.points}, // Get the current amount of baseResource
-	type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-	exponent: 1, // Prestige currency exponent
-	gainMult() { // Calculate the multiplier for main currency from bonuses
-		var mult = new Decimal(1)
-		if (hasUpgrade("c", 22)) mult.mul(upgradeEffect("c", 22))
-		return mult
-	},
-	gainExp() { // Calculate the exponent on main currency from bonuses
-		return new Decimal(1)
-	},
-	row: 1, // Row the layer is in on the tree (0 is the first row)
-	hotkeys: [
-		{
-			key: "s", // What the hotkey button is. Use uppercase if it's combined with shift, or "ctrl+x" for holding down ctrl.
-			description: "S: Purchase Summoning Energy", // The description of the hotkey that is displayed in the game's How To Play tab
-			onPress() { doReset(this.layer) },
-			unlocked() {return player[this.layer].unlocked} // Determines if you can use the hotkey, optional
-		}
-	],
-	layerShown(){return hasUpgrade("c", 21)},
-	upgrades: {
-	}
-})
+// addLayer("s", {
+// 	name: "Summons", // This is optional, only used in a few places, If absent it just uses the layer id.
+// 	symbol: "S", // This appears on the layer's node. Default is the id with the first letter capitalized
+// 	position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+// 	startData() { return {
+// 		unlocked: true,
+// 		points: new Decimal(0),
+// 	}},
+// 	color: "#707",
+// 	requires: function() {
+// 		return 20
+// 	}, // Can be a function that takes requirement increases into account
+// 	resource: "summoning energy", // Name of prestige currency
+// 	baseResource: "coins", // Name of resource prestige is based on
+// 	baseAmount() {return player.c.points}, // Get the current amount of baseResource
+// 	type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+// 	exponent: 1, // Prestige currency exponent
+// 	gainMult() { // Calculate the multiplier for main currency from bonuses
+// 		var mult = new Decimal(1)
+// 		if (hasUpgrade("c", 22)) mult.mul(upgradeEffect("c", 22))
+// 		return mult
+// 	},
+// 	gainExp() { // Calculate the exponent on main currency from bonuses
+// 		return new Decimal(1)
+// 	},
+// 	row: 1, // Row the layer is in on the tree (0 is the first row)
+// 	hotkeys: [
+// 		{
+// 			key: "s", // What the hotkey button is. Use uppercase if it's combined with shift, or "ctrl+x" for holding down ctrl.
+// 			description: "S: Purchase Summoning Energy", // The description of the hotkey that is displayed in the game's How To Play tab
+// 			onPress() { doReset(this.layer) },
+// 			unlocked() {return player[this.layer].unlocked} // Determines if you can use the hotkey, optional
+// 		}
+// 	],
+// 	layerShown(){return hasUpgrade("c", 21)},
+// 	upgrades: {
+// 	}
+// })
 
 // SIDETAB
 
