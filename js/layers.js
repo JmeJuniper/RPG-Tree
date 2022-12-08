@@ -207,13 +207,13 @@ addLayer("s", {
 				return new Decimal(1)
 			},
 			canAfford() {
-				return true
+				return player[this.layer].points.gte(1)
 			},
 			
 			// Buying
 			buy() {
 				player[this.layer].points -= 1
-				addBuyables(this.layer, this.id, 1)
+				player[this.layer].atk += 1
 			},
 		}
 	}
