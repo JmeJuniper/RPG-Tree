@@ -163,7 +163,7 @@ addLayer("s", {
 			"main-display",
 			0
 		],
-		["prestige-button"],
+		"prestige-button",
 		"blank",
 		"blank",
 		"buyables",
@@ -178,17 +178,17 @@ addLayer("s", {
 		return {
 			unlocked: true,
 			points: new Decimal(0),
-			atk: 1,
-			def: 0,
-			ddg: 0,
-			mhp: 10,
-			mag: 5,
-			eng: 3,
+			atk: new Decimal(1),
+			def: new Decimal(0),
+			ddg: new Decimal(0),
+			mhp: new Decimal(10),
+			mag: new Decimal(5),
+			eng: new Decimal(3),
 		}
 	},
 	
-	// Resetting basics
-	type: "none",
+	// Resetting
+	type: "static",
 	baseAmount() {
 		return player.points
 	},
@@ -205,6 +205,7 @@ addLayer("s", {
 			// Costs
 			cost() {
 				return new Decimal(1)
+				// does nothing, change functions below
 			},
 			canAfford() {
 				return player[this.layer].points.gte(1)
@@ -212,9 +213,13 @@ addLayer("s", {
 			
 			// Buying
 			buy() {
-				player[this.layer].points -= 1
-				player[this.layer].atk += 1
+				player[this.layer].points = player[this.layer].points.sub(1)
+				player[this.layer].atk = player[this.layer].atk.add(1)
 			},
+			buyMax() {
+				player[this.layer].atk = player[this.layer].atk.add(player[this.layer].points)
+				player[this.layer].points = new Decimal(0)
+			}
 		}
 	}
 })
