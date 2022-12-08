@@ -163,7 +163,7 @@ addLayer("s", {
 			"main-display",
 			0
 		],
-		"prestige-button",
+		["prestige-button"],
 		"blank",
 		"blank",
 		"buyables",
