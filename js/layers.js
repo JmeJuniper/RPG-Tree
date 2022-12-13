@@ -80,6 +80,7 @@ addLayer("s", {
 		return {
 			unlocked: true,
 			points: new Decimal(0),
+			total: new Decimal(0),
 			atk: new Decimal(1),
 			def: new Decimal(0),
 			ddg: new Decimal(0),
@@ -90,9 +91,13 @@ addLayer("s", {
 	},
 	
 	// Resetting
-	type: "static",
-	baseAmount() {
-		return player.points
+	type: "custom",
+	getResetGain() {
+		var gain = 0;
+		while (player.points >= 5*2^(player[this.layer].total+gain) {
+			gain += 1;
+		}
+		return gain;
 	},
 	
 	// Buyables
@@ -125,36 +130,6 @@ addLayer("s", {
 		}
 	}
 })
-
-// addLayer("a", {
-// 	name: "Attack", // This is optional, only used in a few places, If absent it just uses the layer id.
-// 	symbol: "Atk", // This appears on the layer's node. Default is the id with the first letter capitalized
-// 	position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
-// 	startData() { return {
-// 		unlocked: true,
-// 		points: new Decimal(1),
-// 	}},
-// 	color: "#f00",
-// 	requires() {
-// 		return 1
-// 	}, // Can be a function that takes requirement increases into account
-// 	resource: "attack", // Name of prestige currency
-// 	baseResource: "", // Name of resource prestige is based on
-// 	baseAmount() {return new Decimal(0)}, // Get the current amount of baseResource
-// 	type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-// 	exponent: 1, // Prestige currency exponent
-// 	gainMult() { // Calculate the multiplier for main currency from bonuses
-// 		return new Decimal(1)
-// 	},
-// 	gainExp() { // Calculate the exponent on main currency from bonuses
-// 		return new Decimal(1)
-// 	},
-// 	row: 0, // Row the layer is in on the tree (0 is the first row)
-// 	hotkeys: [],
-// 	layerShown(){return true},
-// 	upgrades: {},
-// 	branches: []
-// })
 
 // LOCATIONS
 
@@ -210,20 +185,6 @@ addLayer("CreditsButton", {
 	tabFormat: [
 		[
 			"display-text",
-			"Me (Jme)",
-			{"font-size": "20px", "color": "red"}
-		],
-		"blank",
-		[
-			"display-text",
-			"I... created this mod. Already listed in \"Info\", so it's kind of redundant, but I figured I'd put it here anyways.",
-			{"font-size": "15px", "color": "white"}
-		],
-		"blank",
-		"h-line",
-		"blank",
-		[
-			"display-text",
 			"Game framework",
 			{"font-size": "32px", "color": "white"}
 		],
@@ -249,9 +210,11 @@ addLayer("CreditsButton", {
 			"(for creating The Modding Tree)",
 			{"font-size": "15px", "color": "white"}
 		],
+		
 		"blank",
 		"h-line",
 		"blank",
+		
 		[
 			"display-text",
 			"People who put up with my non-stop questions",
@@ -268,6 +231,28 @@ addLayer("CreditsButton", {
 			"Escapee",
 			{"font-size": "20px", "color": "red"}
 		],
+		
+		"blank",
+		"h-line",
+		"blank",
+		
+		[
+			"display-text",
+			"Misc",
+			{"font-size": "32px", "color": "white"}
+		],
+		"blank",
+		[
+			"display-text",
+			"Me (Jme)",
+			{"font-size": "20px", "color": "red"}
+		],
+		[
+			"display-text",
+			"(I... created this mod. Already listed in \"Info\", so it's kind of redundant, but I figured I'd put it here anyways.)",
+			{"font-size": "10px", "color": "white"}
+		],
+		
 		"blank",
 		"h-line",
 	],
