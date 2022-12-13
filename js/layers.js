@@ -93,7 +93,7 @@ addLayer("s", {
 	// Resetting
 	type: "custom",
 	getResetGain() {
-		return player.points.div(5).plus(8).log(2).minus(player[this.layer].total).floor();
+		return player.points.div(2.5).max(1).log(2).minus(player[this.layer].total).floor();
 	},
 	
 	// Buyables
@@ -213,7 +213,7 @@ addLayer("CreditsButton", {
 		
 		[
 			"display-text",
-			"People who put up with my non-stop questions",
+			"People who put up with my non-stop questions on the modding tree discord",
 			{"font-size": "32px", "color": "white"}
 		],
 		"blank",
@@ -226,6 +226,11 @@ addLayer("CreditsButton", {
 			"display-text",
 			"Escapee",
 			{"font-size": "20px", "color": "red"}
+		],
+		[
+			"display-text",
+			"(genuinely, I cannot explain how helpful everyone here has been. I would never have gotten this far without all of them xD)",
+			{"font-size": "15px", "color": "white"}
 		],
 		
 		"blank",
