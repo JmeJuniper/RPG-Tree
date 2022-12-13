@@ -211,20 +211,21 @@ addLayer("CreditsButton", {
 		[
 			"display-text",
 			"Me (Jme)",
-			{"font-size": "32px", "color": "white"}
+			{"font-size": "20px", "color": "red"}
 		],
 		"blank",
 		[
 			"display-text",
 			"I... created this mod. Already listed in \"Info\", so it's kind of redundant, but I figured I'd put it here anyways.",
-			{"font-size": "20px", "color": "white"}
+			{"font-size": "15px", "color": "white"}
 		],
 		"blank",
 		"h-line",
+		"blank",
 		[
 			"display-text",
 			"Game framework",
-			{"font-size": "32px"}
+			{"font-size": "32px", "color": "white"}
 		],
 		"blank",
 		[
@@ -235,7 +236,7 @@ addLayer("CreditsButton", {
 		[
 			"display-text",
 			"(for creating The Prestige Tree)",
-			{"font-size": "20px", "color": "white"}
+			{"font-size": "15px", "color": "white"}
 		],
 		"blank",
 		[
@@ -246,24 +247,25 @@ addLayer("CreditsButton", {
 		[
 			"display-text",
 			"(for creating The Modding Tree)",
-			{"font-size": "20px", "color": "white"}
+			{"font-size": "15px", "color": "white"}
 		],
 		"blank",
 		"h-line",
+		"blank",
 		[
 			"display-text",
 			"People who put up with my non-stop questions",
-			{"font-size": "32px"}
+			{"font-size": "32px", "color": "white"}
 		],
 		"blank",
 		[
 			"display-text",
-			"- @smily",
+			"smily",
 			{"font-size": "20px", "color": "red"}
 		],
 		[
 			"display-text",
-			"- @Escapee",
+			"Escapee",
 			{"font-size": "20px", "color": "red"}
 		],
 		"blank",
