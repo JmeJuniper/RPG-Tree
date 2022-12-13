@@ -93,7 +93,7 @@ addLayer("s", {
 	// Resetting
 	type: "custom",
 	getResetGain() {
-		return player.points.div(5).log(2).minus(player[this.layer].total).floor();
+		return player.points.div(5).plus(8).log(2).minus(player[this.layer].total).floor();
 	},
 	
 	// Buyables
