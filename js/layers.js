@@ -210,6 +210,48 @@ addLayer("CreditsButton", {
 	tabFormat: [
 		[
 			"display-text",
+			"Me (Jme)",
+			{"font-size": "32px", "color": "white"}
+		],
+		"blank",
+		[
+			"display-text",
+			"I... created this mod. Already listed in \"Info\", so it's kind of redundant, but I figured I'd put it here anyways.",
+			{"font-size": "20px", "color": "white"}
+		],
+		"blank",
+		"h-line",
+		[
+			"display-text",
+			"Game framework",
+			{"font-size": "32px"}
+		],
+		"blank",
+		[
+			"display-text",
+			"Jacorb90 & Aarex",
+			{"font-size": "20px", "color": "red"}
+		],
+		[
+			"display-text",
+			"(for creating The Prestige Tree)",
+			{"font-size": "20px", "color": "white"}
+		],
+		"blank",
+		[
+			"display-text",
+			"Acamaeda",
+			{"font-size": "20px", "color": "red"}
+		],
+		[
+			"display-text",
+			"(for creating The Modding Tree)",
+			{"font-size": "20px", "color": "white"}
+		],
+		"blank",
+		"h-line",
+		[
+			"display-text",
 			"People who put up with my non-stop questions",
 			{"font-size": "32px"}
 		],
@@ -226,7 +268,6 @@ addLayer("CreditsButton", {
 		],
 		"blank",
 		"h-line",
-		"blank"
 	],
 	
 	// Position
