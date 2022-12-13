@@ -94,7 +94,7 @@ addLayer("s", {
 	type: "custom",
 	getResetGain() {
 		var gain = 0;
-		while (player.points >= 5*2^(player[this.layer].total+gain) {
+		while (player.points >= 5*2^(player[this.layer].total+gain)) {
 			gain += 1;
 		}
 		return gain;
