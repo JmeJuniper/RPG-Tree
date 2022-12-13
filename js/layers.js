@@ -95,6 +95,9 @@ addLayer("s", {
 	getResetGain() {
 		return player.points.div(2.5).max(1).log(2).minus(player[this.layer].total).floor();
 	},
+	getNextAt() {
+		return new Decimal(5).mult(new Decimal(2).pow(player[this.layer].total));
+	},
 	
 	// Buyables
 	buyables: {
