@@ -59,7 +59,9 @@ addLayer("s", {
 	
 	// Display (layer)
 	resource: "stat points",
-	resetDescription: "Reset for +"+getResetGain(this.layer)+" stat points<br>Next at "+getNextAt(this.layer)+" XP",
+	resetDescription() {
+		return "Reset for +"+getResetGain(this.layer)+" stat points<br>Next at "+getNextAt(this.layer)+" XP",
+	},
 	tabFormat: [
 		[
 			"main-display",
