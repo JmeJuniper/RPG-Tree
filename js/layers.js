@@ -60,7 +60,7 @@ addLayer("s", {
 	// Display (layer)
 	resource: "stat points",
 	prestigeButtonText() {
-		return "Reset for +"+getResetGain(this.layer)+" stat points<br>Next at "+getNextAt(this.layer)+" XP"
+		return "Reset for +"+getResetGain(this.layer)+" stat points<br>Next at "+formatWhole(getNextAt(this.layer))+" XP"
 	},
 	tabFormat: [
 		[
@@ -101,7 +101,7 @@ addLayer("s", {
 		return player.points.div(2.5).max(1).log(2).minus(player[this.layer].total).floor();
 	},
 	getNextAt() {
-		return new Decimal(5).mul(new Decimal(2).pow(player[this.layer].total.add(getResetGain(this.layer)))).round;
+		return new Decimal(5).mul(new Decimal(2).pow(player[this.layer].total.add(getResetGain(this.layer))));
 	},
 	canReset() {
 		return getNextAt(this.layer).gte(1)
