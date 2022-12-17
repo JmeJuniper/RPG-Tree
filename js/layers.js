@@ -105,7 +105,7 @@ addLayer("s", {
 	},
 	prestigeNotify() {
 		return getNextAt(this.layer).gte(1)
-	}
+	},
 	
 	// Buyables
 	buyables: {
