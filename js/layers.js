@@ -59,7 +59,7 @@ addLayer("s", {
 	
 	// Display (layer)
 	resource: "stat points",
-	resetDescription() {
+	prestigeButtonText() {
 		return "Reset for +"+getResetGain(this.layer)+" stat points<br>Next at "+getNextAt(this.layer)+" XP"
 	},
 	tabFormat: [
