@@ -100,6 +100,12 @@ addLayer("s", {
 	getNextAt() {
 		return new Decimal(5).mul(new Decimal(2).pow(player[this.layer].total));
 	},
+	canReset() {
+		return getNextAt(this.layer).gte(1)
+	},
+	prestigeNotify() {
+		return getNextAt(this.layer).gte(1)
+	}
 	
 	// Buyables
 	buyables: {
