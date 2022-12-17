@@ -19,11 +19,13 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1 - RPG.init()</h3><br>
-		- Oh hey, there's a game here
-		- Added coin layer (and upgrades:
-			1. (0 coins) Generate 1 coin per second
-			3. (3 coins) Unlock Summons
-			2. (5 coins) Multiply coin generation based on XP<br>`
+		- Oh hey, there's a game here<br>
+		- Added coin layer with 4 upgrades.<br>
+		- Added summons layer.<br>
+		- Oops, looks like I coded bad. RESET EVERYTHING<br>
+		- Added coin layer. Does absolutely nothing.<br>
+		- Added stats layer, with some stat point buyables.<br>
+		- Edited this changelog`
 
 let winText = `GG! You beat this RPG thingy!`
 
