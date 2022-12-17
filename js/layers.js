@@ -109,6 +109,11 @@ addLayer("s", {
 			display() {
 				return "Put one stat point into Attack<br>Currently: "+player[this.layer].atk
 			},
+			style() {
+				return {
+					"background":"red"
+				}
+			},
 			
 			// Costs
 			cost() {
