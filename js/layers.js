@@ -104,10 +104,10 @@ addLayer("s", {
 		return new Decimal(5).mul(new Decimal(2).pow(player[this.layer].total.add(getResetGain(this.layer))));
 	},
 	canReset() {
-		return getNextAt(this.layer).gte(1)
+		return getResetGain(this.layer).gte(1)
 	},
 	prestigeNotify() {
-		return getNextAt(this.layer).gte(1)
+		return getResetGain(this.layer).gte(1)
 	},
 	
 	// Buyables
