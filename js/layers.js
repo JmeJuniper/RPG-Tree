@@ -60,7 +60,7 @@ addLayer("s", {
 	// Display (layer)
 	resource: "stat points",
 	prestigeButtonText() {
-		return "Reset for +"+getResetGain(this.layer)+" stat points<br>Next at "+formatWhole(getNextAt(this.layer))+" XP"
+		return "Reset for +"+getResetGain(this.layer).max(0)+" stat points<br>Next at "+formatWhole(getNextAt(this.layer))+" XP"
 	},
 	tabFormat: [
 		[
